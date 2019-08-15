@@ -47,16 +47,17 @@
         </div>
           <div layout="row" id="all-fields-container">
             <div id="info-box" ng-show="gameOver" layout="column" layout-align="center center">
-              <h3 style="color: white">Game Over</h3>
-              <h3 style="color: white">Score:{{score}}</h3>
+              <h3 style="color: white">{{winOrLoose}}</h3>
             </div>
             <div  
+                  ng-right-click="safeMine($index)"
                   class="field-size hov" 
                   id="{{$index}}" 
                   ng-repeat="field in fields"
                   ng-click="checkField($index)"
             ><span ng-if="!field.isBomb && field.showField">{{field.number}}</span></div> 
           </div>
+          <div style="width: 100px;">10 mines : You have {{numFlags}} flags</div>
       </div>
       
 
