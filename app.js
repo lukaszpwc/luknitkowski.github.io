@@ -301,9 +301,11 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
           document.getElementById($scope.fields[index].id).style.backgroundColor = 'pink';
           $scope.numFlags--;
         }else{
-          $scope.fields[index].isFlag = false;
-          document.getElementById($scope.fields[index].id).style.backgroundColor = 'gray';
-          $scope.numFlags++
+          if($scope.fields[index].isFlag === true){
+            $scope.fields[index].isFlag = false;
+            document.getElementById($scope.fields[index].id).style.backgroundColor = 'gray';
+            $scope.numFlags++
+          }
         }
       }
 
