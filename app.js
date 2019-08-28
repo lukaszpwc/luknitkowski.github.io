@@ -9,7 +9,8 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
     $scope.randomNumbersArray = [];
     $scope.numbersClearFields = 0;
     $scope.winOrLoose = '';
-    $scope.numFlags = 10;
+    $scope.numBomb = 15;
+    $scope.numFlags = 15;
 
     $scope.render = function(){
       
@@ -27,7 +28,8 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
       $scope.num = 0;
       $scope.noClick = true;
       $scope.randomNumbersArray = [];
-      $scope.numFlags = 10;
+      $scope.numBomb = 15;
+      $scope.numFlags = 15;
 
       for(var i = 0 ; i < 10 ;i++ ){
         for(var j = 0 ; j < 10 ; j++){ 
@@ -42,7 +44,7 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
 
     $scope.addBombs = function (){
       for(var i = 0 ; i < 10 ;i++){
-        if($scope.randomNumbersArray.length === 10){
+        if($scope.randomNumbersArray.length === $scope.numBomb){
           return;
         }
         var randomNumber = $scope.getRandomIntInclusive(0,99);
@@ -57,7 +59,7 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
           $scope.randomNumbersArray.push(randomNumber)
         }
       }
-      if($scope.randomNumbersArray.length !== 10){
+      if($scope.randomNumbersArray.length !== $scope.numBomb){
         $scope.addBombs();
       }
       for(var i = 0 ; i < $scope.randomNumbersArray.length ; i++ ){
@@ -259,7 +261,7 @@ angular.module('sapperApp', ['ngMaterial', 'ngMessages'])
           numHiddenFields++;
         }
       }
-      if(numHiddenFields === 10){
+      if(numHiddenFields === $scope.numBomb){
         $scope.boom();
         $scope.winOrLoose = "You won!";
         $scope.gameOver = true;
