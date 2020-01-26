@@ -1,66 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>sapper</title>
-      <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
-
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-    <script src="app.js"></script>
-    <style>
-     #all-fields-container{width: 172px; height: 172px; border:1px solid black; flex-wrap:wrap;position: relative;}
-     .field-size{width: 15px; height: 15px; border:1px solid black; background-color: gray;text-align: center;};
-     .field-size:hover{
-      background-color: wheat;
-     }
-     .hov:hover{ background-color: wheat;}
-     #info-box{
-      width: 100%; height: 100%; background-color:black;
-      position: absolute;
-      animation-name: opa;
-      animation-duration: 4s;
-     }
-     #info-box h3{
-      animation-name: opa;
-      animation-duration: 4s;
-     }
-
-     @-webkit-keyframes opa {
-    0%   {opacity: 0}
-    100% {opacity: 1}
-    }
-    
-    </style>
-  </head>
-
-  <body ng-app="sapperApp">
-    <div ng-controller="sapperController">
-      <div style="width: 100%; height: 310px;" layout="row" layout-align="center center"> 
-        <div style="width: 100px;">
-          <md-button class="md-raised md-primary" ng-click="StartOrReset()">Reset</md-button>
-        </div>
-          <div layout="row" id="all-fields-container">
-            <div id="info-box" ng-show="gameOver" layout="column" layout-align="center center">
-              <h3 style="color: white">{{winOrLoose}}</h3>
-            </div>
-            <div  
-                  ng-right-click="safeMine($index)"
-                  class="field-size hov" 
-                  id="{{$index}}" 
-                  ng-repeat="field in fields"
-                  ng-click="checkField($index)"
-            ><span ng-if="!field.isBomb && field.showField">{{field.number}}</span></div> 
-          </div>
-          <div style="width: 100px;">15 mines : You have {{numFlags}} flags</div>
-      </div>
-      
-
-    </div>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Magiaogrodowwebsite</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="styles.61e4b268f74f24a3a5f2.css"></head>
+<body>
+  <app-root></app-root>
+<script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script><script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script><script src="polyfills-es5.6696c533341b95a3d617.js" nomodule defer></script><script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script><script src="main-es2015.f0a0e3c567dce7e6cedb.js" type="module"></script><script src="main-es5.f0a0e3c567dce7e6cedb.js" nomodule defer></script></body>
 </html>
